@@ -1,0 +1,18 @@
+service: html2pdf
+provider:
+  name: aws
+  profile: daymaker
+  runtime: nodejs8.10
+
+plugins:
+  - serverless-offline
+
+functions:
+  hello:
+    handler: handler.downloadPdf
+    memorySize: 1536MB
+    timeout: 30
+    events:
+      - http:
+          path: /
+          method: get
