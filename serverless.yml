@@ -2,13 +2,16 @@ service: html2pdf
 provider:
   name: aws
   profile: daymaker
-  runtime: nodejs8.10
+  runtime: nodejs12.x
+  apiGateway:
+    binaryMediaTypes:
+      - '*/*'
 
 plugins:
   - serverless-offline
 
 functions:
-  hello:
+  pdf:
     handler: handler.downloadPdf
     memorySize: 1536MB
     timeout: 30

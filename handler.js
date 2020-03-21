@@ -23,8 +23,10 @@ exports.downloadPdf = async (event) => {
 
   return {
     statusCode: 200,
-    headers: { 'Content-Type': 'application/pdf' },
-    body: pdf.toString('base64'),
+    headers: {
+      'Content-Type': 'application/pdf',
+    },
     isBase64Encoded: true,
+    body: pdf.toString('base64'),
   };
 };
